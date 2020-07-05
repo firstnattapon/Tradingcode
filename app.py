@@ -20,7 +20,6 @@ class Run_model :
         plt.plot(x_coordinates, y_coordinates)
         plt.plot(x , y)
         st.pyplot()
-        st.write('Port_value = ', round(slope,4) ,'*(Asset_prices) +', round(b  , 4))
         
     def Direct (self,upper=100.0 ,lowwer=0.0):
         x1 = lowwer;  y1 = 0
@@ -41,6 +40,7 @@ if __name__ == '__main__':
         upper_inverse   = st.sidebar.number_input('upper_inverse(ผกผัน) ',min_value=0.0,max_value=10000.0,value=100.0,step=0.1,format='%f')        
         lowwer_inverse  = st.sidebar.number_input('lowwer_inverse(ผกผัน)',min_value=0.0,max_value=10000.0,value=0.000,step=0.1,format='%f')
         Asset_prices    = st.number_input('Asset_prices', min_value=0.0 ,max_value= upper_inverse ,value=0.0,step=0.1,format='%f')
+        st.write('Port_value = ', round(slope,4) ,'*(Asset_prices) +', round(b  , 4))
         _               = inverse.inverse(upper=upper_inverse ,lowwer=lowwer_inverse , Asset_prices=Asset_prices)
         st.sidebar.text('-'*40)
         
