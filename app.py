@@ -18,7 +18,10 @@ class Run_model :
         Port_value = slope *(Asset_prices) + b
         x_capital  = [0 , Asset_prices] ; y_capital = [Port_value , Port_value]
         x_asset    = [Asset_prices , Asset_prices] ; y_asset = [Asset_prices , Port_value]
-        plt.plot(x_capital, y_capital) ; plt.plot(x_asset , y_asset) ;plt.plot(x , y)
+        plt.plot(x , y)
+        if Asset_prices != 0:
+            plt.plot(x_capital, y_capital)
+            plt.plot(x_asset , y_asset)
         st.pyplot()
         st.write('Port_value = ', round(slope,4) ,'*(Asset_prices) +', round(b  , 4))
         
