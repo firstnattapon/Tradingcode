@@ -32,8 +32,8 @@ class Run_model :
 #         return pass
 
 capital = st.sidebar.number_input('capital' , 0 , 10000 , 100)
-upper   = st.sidebar.number_input('upper' , 0 , 10000 , 100)
-lowwer  = st.sidebar.number_input('lowwer' , 0 , 10000 , 100)
-model   =  Run_model(capital=capital)
-_ = model.inverse(upper=upper ,lowwer=lowwer)
-_ = model.Direct()
+upper   = st.sidebar.number_input('upper'   , 0 , 10000 , 100)
+lowwer  = st.sidebar.number_input('lowwer'  , 0 , 10000 , 0)
+model   = Run_model(capital=capital)
+_       = model.inverse(upper=upper ,lowwer=lowwer)
+_       = model.Direct()
