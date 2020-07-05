@@ -42,7 +42,7 @@ class Run_model :
         Port_value = slope *(Asset_prices) + b
         x_capital  = [0 , Asset_prices] ; y_capital = [Port_value , Port_value]
         x_asset    = [Asset_prices  , Asset_prices] ; y_asset = [0 , Port_value]
-        plt.plot(x , y , label='D = {:.2f}'.format(abs(slope))
+        plt.plot(x , y , label='D = {:.2f}'.format(abs(slope)))
         if Asset_prices != 0:
             plt.plot(x_capital, y_capital , color='r')
             plt.plot(x_asset , y_asset , color='r')
