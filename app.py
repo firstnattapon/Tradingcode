@@ -66,7 +66,7 @@ if __name__ == '__main__':
         inverse         = Run_model(capital=capital_inverse)
         upper_inverse   = st.sidebar.number_input('upper_inverse(โซนบน) ',min_value=0.0,max_value=10000.0,value=100.0,step=0.1,format='%f')        
         lowwer_inverse  = st.sidebar.number_input('lowwer_inverse(โซนล่าง)',min_value=0.0,max_value=10000.0,value=0.000,step=0.1,format='%f')
-        Asset_prices    = st.number_input('Asset_prices', min_value=lowwer_inverse ,max_value= upper_inverse ,value=None,step=0.1,format='%f')
+        Asset_prices    = st.number_input('Asset_prices', min_value=lowwer_inverse ,max_value= upper_inverse ,value=50.0,step=0.1,format='%f')
         _               = inverse.inverse(upper=upper_inverse ,lowwer= lowwer_inverse , Asset_prices=Asset_prices)
         st.sidebar.text('-'*40)
         
@@ -75,7 +75,7 @@ if __name__ == '__main__':
         capital_Direct  = st.sidebar.number_input('capital_Direct(เงินทุนเริ่มต้น) ',min_value=0.0,max_value=10000.0,value=1000.0,step=0.1,format='%f')
         Direct          = Run_model(capital=capital_Direct)
         upper_Direct    = st.sidebar.number_input('upper_Direct(โซนบน)   ',min_value=0.0,max_value=10000.0,value=100.0,step=0.1,format='%f')       
-        lowwer_Direct   = st.sidebar.number_input('lowwer_Direct(โซนล่าง)  ',min_value=0.0,max_value=10000.0,value=None,step=0.1,format='%f')
+        lowwer_Direct   = st.sidebar.number_input('lowwer_Direct(โซนล่าง)  ',min_value=0.0,max_value=10000.0,value=0.000,step=0.1,format='%f')
         Asset_prices    = st.number_input('Asset_prices ', min_value= lowwer_Direct ,max_value= upper_Direct ,value=50.0,step=0.1,format='%f')
         _               = Direct.Direct(upper=upper_Direct ,lowwer=lowwer_Direct , Asset_prices=Asset_prices)
         st.sidebar.text('-'*40)
