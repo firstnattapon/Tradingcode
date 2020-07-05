@@ -13,7 +13,7 @@ class Run_model :
         x2 = upper  ;  y2 = 0
         slope,b,_,_,_ = linregress([x1,x2],[y1,y2])
 #         x = np.arange(x1 , x2 , (y1 / x2))
-        x = np.arange(x1 , x2 , slope))
+        x = np.arange(x1 , x2 , slope)
         y = (slope * x) + b
         plt.figure(figsize=(12,8))
         plt.plot(x , y)
