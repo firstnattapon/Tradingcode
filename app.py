@@ -60,7 +60,7 @@ class Run_model :
     
 if __name__ == '__main__':
     st.title('Tradingcode')  ; st.write('-'*50)
-    if  st.checkbox('inverse(ผกผัน)'):
+    if  st.checkbox('inverse (ผกผัน)'):
         st.sidebar.text('-'*40)
         capital_inverse = st.sidebar.number_input('capital_inverse(เงินทุนเริ่มต้น)',min_value=0.0,max_value=10000.0,value=1000.0,step=0.1,format='%f')   
         inverse         = Run_model(capital=capital_inverse)
@@ -70,7 +70,7 @@ if __name__ == '__main__':
         _               = inverse.inverse(upper=upper_inverse ,lowwer=lowwer_inverse , Asset_prices=Asset_prices)
         st.sidebar.text('-'*40)
         
-    if  st.checkbox('Direct(ผกผัน)'):
+    if  st.checkbox('Direct (ผันตรง)'):
         st.sidebar.text('-'*40)
         capital_Direct  = st.sidebar.number_input('capital_Direct(เงินทุนเริ่มต้น) ',min_value=0.0,max_value=10000.0,value=1000.0,step=0.1,format='%f')
         Direct          = Run_model(capital=capital_Direct)
