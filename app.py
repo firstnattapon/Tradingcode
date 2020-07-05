@@ -12,8 +12,7 @@ class Run_model :
         x1 = lowwer ;  y1 = self.capital
         x2 = upper  ;  y2 = 0
         slope,b,_,_,_ = linregress([x1,x2],[y1,y2])
-#         x = np.arange(x1 , x2 , (y1 / x2))
-        x = np.arange(x1 , x2 , abs(slope))
+        x = np.arange(x1 , x2 , (y1 / x2))
         y = (slope * x) + b
         plt.figure(figsize=(12,8))
         plt.plot(x , y)
@@ -24,7 +23,7 @@ class Run_model :
         x1 = lowwer;  y1 = 0
         x2 = upper ;  y2 = self.capital
         slope,b,_,_,_ = linregress([x1,x2],[y1,y2])
-        x = np.arange(x1 , x2 , (x2 /y2))
+        x = np.arange(x1 , x2 , (x2 / y2))
         y = (slope * x) + b
         plt.figure(figsize=(12,8))
         plt.plot(x , y)
