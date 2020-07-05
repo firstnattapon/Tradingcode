@@ -31,9 +31,10 @@ class Run_model :
         st.write( slope , b)
 #         return pass
 
-capital = st.sidebar.number_input('capital' , 0 , 10000 , 100)
-upper   = st.sidebar.number_input('upper'   , 0 , 10000 , 100)
-lowwer  = st.sidebar.number_input('lowwer'  , 0 , 10000 , 0)
-model   = Run_model(capital=capital)
-_       = model.inverse(upper=upper ,lowwer=lowwer)
-_       = model.Direct()
+if __name__ == '__main__':
+    capital = st.sidebar.number_input('capital' , 0 , 10000 , 100)
+    upper   = st.sidebar.number_input('upper'   , 0 , 10000 , 100)
+    lowwer  = st.sidebar.number_input('lowwer'  , 0 , 10000 , 0)
+    model   = Run_model(capital=capital)
+    _       = model.inverse(upper=upper ,lowwer=lowwer)
+    _       = model.Direct()
