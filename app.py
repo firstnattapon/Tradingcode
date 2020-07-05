@@ -59,7 +59,7 @@ class Run_model :
         st.write('') ; st.write('_'*40) ; st.write('')
     
 if __name__ == '__main__':
-    low = (lambda x , y : np.where((if x > y) , y ,x))
+    low = (lambda x , y : np.where(( x > y) , y ,x))
     st.subheader('Tradingcode')  ; st.write('-'*50)
     if  st.checkbox('inverse (ผกผัน)'):
         st.sidebar.text('-'*40)
