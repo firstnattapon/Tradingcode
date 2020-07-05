@@ -59,8 +59,9 @@ class Run_model :
         st.write('') ; st.write('_'*40) ; st.write('')
     
 if __name__ == '__main__':
-    inverse_checkbox =  st.checkbox('inverse(ผกผัน)')
-    if inverse_checkbox:
+    st.header   ('Tradingcode cheatsheet')
+    
+    if st.checkbox('inverse(ผกผัน)'):
         capital_inverse = st.sidebar.number_input('capital_inverse(เงินทุนเริ่มต้น)',min_value=0.0,max_value=10000.0,value=1000.0,step=0.1,format='%f')   
         inverse         = Run_model(capital=capital_inverse)
         upper_inverse   = st.sidebar.number_input('upper_inverse(โซนบน) ',min_value=0.0,max_value=10000.0,value=100.0,step=0.1,format='%f')        
@@ -69,8 +70,7 @@ if __name__ == '__main__':
         _               = inverse.inverse(upper=upper_inverse ,lowwer=lowwer_inverse , Asset_prices=Asset_prices)
         st.sidebar.text('-'*40)
         
-    Direct_checkbox =  st.checkbox('Direct(ผกผัน)')
-    if Direct_checkbox :
+    if st.checkbox('Direct(ผกผัน)') :
         capital_Direct  = st.sidebar.number_input('capital_Direct(เงินทุนเริ่มต้น) ',min_value=0.0,max_value=10000.0,value=1000.0,step=0.1,format='%f')
         Direct          = Run_model(capital=capital_Direct)
         upper_Direct    = st.sidebar.number_input('upper_Direct(โซนบน)   ',min_value=0.0,max_value=10000.0,value=100.0,step=0.1,format='%f')       
@@ -78,6 +78,5 @@ if __name__ == '__main__':
         Asset_prices    = st.number_input('Asset_prices ', min_value=lowwer_Direct ,max_value= upper_Direct ,value=50.0,step=0.1,format='%f')
         _               = Direct.Direct(upper=upper_Direct ,lowwer=lowwer_Direct , Asset_prices=Asset_prices)
         st.sidebar.text('-'*40)
-    if inverse_checkbox == False and Direct_checkbox == False :
-        st.header   ('Tradingcode cheatsheet')
-        st.subheader('เลือก method')
+        
+
