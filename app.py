@@ -20,6 +20,7 @@ class Run_model :
         plt.plot(x_coordinates, y_coordinates)
         plt.plot(x , y)
         st.pyplot()
+        st.write('Port_value = ', round(slope,4) ,'*(Asset_prices) +', round(b  , 4))
         
     def Direct (self,upper=100.0 ,lowwer=0.0):
         x1 = lowwer;  y1 = 0
@@ -31,7 +32,6 @@ class Run_model :
         plt.plot(x , y)
         st.pyplot()
         st.write('Port_value = ', round(slope,3) ,'*(Asset_prices) +', round(b  , 4))
-
     
 if __name__ == '__main__':
     if st.checkbox('inverse(ผกผัน)'):
@@ -51,3 +51,4 @@ if __name__ == '__main__':
         lowwer_Direct   = st.sidebar.number_input('lowwer_Direct(ผันตรง)  ',min_value=0.0,max_value=10000.0,value=0.000,step=0.1,format='%f')        
         _               = Direct.Direct(upper=upper_Direct ,lowwer=lowwer_Direct)
         st.sidebar.text('-'*40)
+=
