@@ -25,7 +25,7 @@ class Run_model :
         st.pyplot()
         st.write('*Formula*')
         st.write('Port_value = ' , round(slope,4) ,'*(Asset_prices) +', round(b  , 4))
-        st.write('Port_value = ' , round(slope,4) , Asset_prices +', round(b  , 4))
+        st.write('Port_value = ' , round(slope,4) , Asset_prices  , round(b  , 4))
         st.write('Port_value = ' , Port_value)
         
     def Direct (self,upper=100.0 ,lowwer=0.0):
@@ -38,6 +38,8 @@ class Run_model :
         plt.plot(x , y)
         st.pyplot()
         st.write('Port_value = ', round(slope,3) ,'*(Asset_prices) +', round(b  , 4))
+        st.write('Port_value = ', round(slope,3) ,'*(', Asset_prices , )+', round(b  , 4))
+        st.write('') ; st.write('_'*40) ; st.write('')
     
 if __name__ == '__main__':
     if st.checkbox('inverse(ผกผัน)'):
