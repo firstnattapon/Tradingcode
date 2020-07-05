@@ -37,7 +37,7 @@ if __name__ == '__main__':
         inverse         = Run_model(capital=capital_inverse)
         upper_inverse   = st.sidebar.number_input('upper'   , 0 , 10000 , 100)
         lowwer_inverse  = st.sidebar.number_input('lowwer'  , 0 , 10000 , 0)
-        _               = inverse.inverse(upper=upper ,lowwer=lowwer)
+        _               = inverse.inverse(upper=upper_inverse ,lowwer=lowwer_inverse)
     if st.checkbox('Direct'):
         capital_Direct  = st.sidebar.number_input('capital' , 0 , 10000 , 100)
         Direct          = Run_model(capital=capital_Direct)
