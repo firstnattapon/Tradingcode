@@ -51,4 +51,3 @@ if __name__ == '__main__':
         lowwer_Direct   = st.sidebar.number_input('lowwer_Direct(ผันตรง)  ',min_value=0.0,max_value=10000.0,value=0.000,step=0.1,format='%f')        
         _               = Direct.Direct(upper=upper_Direct ,lowwer=lowwer_Direct)
         st.sidebar.text('-'*40)
-=
