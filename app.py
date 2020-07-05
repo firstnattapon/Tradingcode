@@ -18,12 +18,12 @@ class Run_model :
         Port_value = slope *(Asset_prices) + b
         x_capital  = [0 , Asset_prices] ; y_capital = [Port_value , Port_value]
         x_asset    = [Asset_prices , Asset_prices] ; y_asset = [Asset_prices , Port_value]
-        plt.plot(x , y)
+        plt.plot(x , y , color='b')
         if Asset_prices != 0:
-            plt.plot(x_capital, y_capital)
-            plt.plot(x_asset , y_asset)
+            plt.plot(x_capital, y_capital , color='r')
+            plt.plot(x_asset , y_asset , color='r')
         st.pyplot()
-        st.write('*Formula*')
+        st.write('Formula')
         st.write('Port_value = ' , round(slope,4) ,'*(Asset_prices) +', round(b  , 4))
         st.write('Port_value = ' , round(slope,4) , Asset_prices  , round(b  , 4))
         st.write('Port_value = ' , Port_value)
@@ -35,10 +35,10 @@ class Run_model :
         x = np.arange(x1 , x2 , 0.01)
         y = (slope * x) + b
         plt.figure(figsize=(12,8))
-        plt.plot(x , y)
+        plt.plot(x , y , )
         st.pyplot()
         st.write('Port_value = ', round(slope,3) , '*(Asset_prices) +', round(b  , 4))
-        st.write('Port_value = ', round(slope,3) , '*(' , Asset_prices , ')+', round(b  , 4))
+        st.write('Port_value = ', round(slope,3) , '* {} +'.format(Asset_prices), round(b  , 4))
         st.write('') ; st.write('_'*40) ; st.write('')
     
 if __name__ == '__main__':
