@@ -24,6 +24,8 @@ class Run_model :
 
     @property
     def Direct (self):
+        x1 = 0            ;  y1 = self.capital
+        x2 = self.capital ;  y2 = 0
         slope,b,_,_,_ = linregress([x1,x2],[y1,y2])
         x = np.arange(x1 , x2 , (x2 /y2))
         y = (slope * x) + b
@@ -34,5 +36,5 @@ class Run_model :
 #         return pass
 
 model =  Run_model(100 , 250 , 0)
-model.inverse
-model.Direct
+_ = model.inverse
+_ = model.Direct
