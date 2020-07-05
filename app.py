@@ -18,7 +18,7 @@ class Run_model :
         plt.figure(figsize=(12,8))
         Port_value = slope *(Asset_prices) + b
         x_capital  = [0 , Asset_prices] ; y_capital = [Port_value , Port_value]
-        x_asset    = [Asset_prices  , 0] ; y_asset = [Asset_prices , Port_value]
+        x_asset    = [Asset_prices  , Asset_prices] ; y_asset = [0 , Port_value]
         plt.plot(x , y)
         if Asset_prices != 0:
             plt.plot(x_capital, y_capital , color='r')
