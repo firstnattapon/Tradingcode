@@ -17,7 +17,9 @@ class Run_model :
         plt.figure(figsize=(12,8))
         plt.plot(x , y)
         st.pyplot()
-        st.write( 'จุดละ', round( slope , 2))
+        st.write( 'จุดละ', abs(round( slope , 2)))
+        st.write('formula')
+        st.write('Portvalue =', slope ,'*(Asset prices)', + b )
         
     def Direct (self,upper=100 ,lowwer=0):
         x1 = lowwer;  y1 = 0
@@ -29,6 +31,7 @@ class Run_model :
         plt.plot(x , y)
         st.pyplot()
         st.write( 'จุดละ', round( slope , 2))
+        st.write('Portvalue =', slope ,'*(Asset prices)', + b )
 
 if __name__ == '__main__':
     if st.checkbox('inverse'):
