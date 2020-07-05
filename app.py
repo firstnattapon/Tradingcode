@@ -8,18 +8,19 @@ class Run_model :
     def __init__(self,capital):
         self.capital = capital
         
-    def inverse (self,upper=100 ,lowwer=0):
+    def inverse (self,upper=100.0 ,lowwer=0.0):
         x1 = lowwer ;  y1 = self.capital
         x2 = upper  ;  y2 = 0
         slope,b,_,_,_ = linregress([x1,x2],[y1,y2])
-        x = np.arange(x1 , x2 , (y1 / x2))
+#         x = np.arange(x1 , x2 , (y1 / x2))
+        x = np.arange(x1 , x2 , slope))
         y = (slope * x) + b
         plt.figure(figsize=(12,8))
         plt.plot(x , y)
         st.pyplot()
         st.write('Portvalue =', round(slope,3) ,'*(Asset prices)+', b )
         
-    def Direct (self,upper=100 ,lowwer=0):
+    def Direct (self,upper=100.0 ,lowwer=0.0):
         x1 = lowwer;  y1 = 0
         x2 = upper ;  y2 = self.capital
         slope,b,_,_,_ = linregress([x1,x2],[y1,y2])
