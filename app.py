@@ -32,7 +32,7 @@ class Run_model :
 
 if __name__ == '__main__':
     if st.checkbox('inverse'):
-        capital_inverse = streamlit.sidebar.number_input('capital_inverse(ผกผัน)'min_value=0.0,max_value=10000.0,value=100.0,step=0.01,format='%d')
+        capital_inverse = streamlit.sidebar.number_input('capital_inverse(ผกผัน)',min_value=0.0,max_value=10000.0,value=100.0,step=0.01,format='%d')
         inverse         = Run_model(capital=capital_inverse)
         upper_inverse   = st.sidebar.number_input('upper_inverse(ผกผัน)'   , 0 , 10000 , 100)
         lowwer_inverse  = st.sidebar.number_input('lowwer_inverse(ผกผัน)'  , 0 , 10000 , 0)
