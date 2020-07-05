@@ -7,7 +7,8 @@ import streamlit as st
 class Run_model :
     def __init__(self,capital):
         self.capital = capital
-
+        
+    @st.cache
     def inverse (self,upper=100 ,lowwer=0):
         x1 = lowwer ;  y1 = self.capital
         x2 = upper  ;  y2 = 0
@@ -18,7 +19,8 @@ class Run_model :
         plt.plot(x , y)
         st.pyplot()
         st.write( slope , b)
-   
+        
+   @st.cache
     def Direct (self,upper=100 ,lowwer=0):
         x1 = lowwer;  y1 = 0
         x2 = upper ;  y2 = self.capital
@@ -36,5 +38,8 @@ if __name__ == '__main__':
     upper   = st.sidebar.number_input('upper'   , 0 , 10000 , 100)
     lowwer  = st.sidebar.number_input('lowwer'  , 0 , 10000 , 0)
     model   = Run_model(capital=capital)
-    _       = model.inverse(upper=upper ,lowwer=lowwer)
-    _       = model.Direct()
+    
+    if st.inverse('inverse'):
+        _       = model.inverse(upper=upper ,lowwer=lowwer)
+    if st.inverse('inverse'):
+        _       = model.Direct()
