@@ -59,6 +59,8 @@ class Run_model :
         st.write('') ; st.write('_'*40) ; st.write('')
     
 if __name__ == '__main__':
+    st.title('Tradingcode')
+    st.write('') ; st.write('') ; st.write('-'*50)
     if  st.checkbox('inverse(ผกผัน)'):
         capital_inverse = st.sidebar.number_input('capital_inverse(เงินทุนเริ่มต้น)',min_value=0.0,max_value=10000.0,value=1000.0,step=0.1,format='%f')   
         inverse         = Run_model(capital=capital_inverse)
