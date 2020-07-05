@@ -29,7 +29,6 @@ class Run_model :
         plt.plot(x , y)
         st.pyplot()
         st.write( slope , b)
-#         return pass
 
 if __name__ == '__main__':
     if st.checkbox('inverse'):
@@ -43,4 +42,4 @@ if __name__ == '__main__':
         Direct          = Run_model(capital=capital_Direct)
         upper_Direct    = st.sidebar.number_input('upper'   , 0 , 10000 , 100)
         lowwer_Direct   = st.sidebar.number_input('lowwer'  , 0 , 10000 , 0)
-        _               = inverse.inverse(upper=upper_Direct ,lowwer=lowwer_Direct)
+        _               = Direct.inverse(upper=upper_Direct ,lowwer=lowwer_Direct)
