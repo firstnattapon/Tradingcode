@@ -18,7 +18,7 @@ class Run_model :
         plt.plot(x , y)
         st.pyplot()
         st.write('Formula:')
-        st.write('Portvalue =', slope ,'*(Asset prices)', + b )
+        st.write('Portvalue =', slope ,'*(Asset prices)+', b )
         
     def Direct (self,upper=100 ,lowwer=0):
         x1 = lowwer;  y1 = 0
@@ -30,14 +30,14 @@ class Run_model :
         plt.plot(x , y)
         st.pyplot()
         st.write('Formula:')
-        st.write('Portvalue =', slope ,'*(Asset prices)', + b )
+        st.write('Portvalue =', slope ,'*(Asset prices)+', b )
 
 if __name__ == '__main__':
     if st.checkbox('inverse'):
         capital_inverse = st.sidebar.number_input('capital_inverse(ผกผัน)' , 0 , 10000 , 100)
         inverse         = Run_model(capital=capital_inverse)
-        upper_inverse   = st.sidebar.number_input('upper_inverse(ผันตรง)'   , 0 , 10000 , 100)
-        lowwer_inverse  = st.sidebar.number_input('lowwer_inverse(ผันตรง)'  , 0 , 10000 , 0)
+        upper_inverse   = st.sidebar.number_input('upper_inverse(ผกผัน)'   , 0 , 10000 , 100)
+        lowwer_inverse  = st.sidebar.number_input('lowwer_inverse(ผกผัน)'  , 0 , 10000 , 0)
         _               = inverse.inverse(upper=upper_inverse ,lowwer=lowwer_inverse)
         st.sidebar.text('-'*40)
     if st.checkbox('Direct'):
