@@ -21,7 +21,6 @@ class Run_model :
         plt.plot(x , y)
         st.pyplot()
         st.write('Port_value = ', round(slope,4) ,'*(Asset_prices) +', round(b  , 4))
-        return slope , b
         
     def Direct (self,upper=100.0 ,lowwer=0.0):
         x1 = lowwer;  y1 = 0
@@ -33,16 +32,16 @@ class Run_model :
         plt.plot(x , y)
         st.pyplot()
         st.write('Port_value = ', round(slope,3) ,'*(Asset_prices) +', round(b  , 4))
-        return slope , b
+
     
 if __name__ == '__main__':
     if st.checkbox('inverse(ผกผัน)'):
         capital_inverse = st.sidebar.number_input('capital_inverse(ผกผัน)',min_value=0.0,max_value=10000.0,value=1000.0,step=0.1,format='%f')   
-        Asset_prices    = st.number_input('Asset_prices',min_value=0.0,max_value=10000.0,value=0.0,step=0.1,format='%f')
         inverse         = Run_model(capital=capital_inverse)
         upper_inverse   = st.sidebar.number_input('upper_inverse(ผกผัน) ',min_value=0.0,max_value=10000.0,value=100.0,step=0.1,format='%f')        
         lowwer_inverse  = st.sidebar.number_input('lowwer_inverse(ผกผัน)',min_value=0.0,max_value=10000.0,value=0.000,step=0.1,format='%f')   
-        _       = inverse.inverse(upper=upper_inverse ,lowwer=lowwer_inverse , Asset_prices = Asset_prices)
+        _               = inverse.inverse(upper=upper_inverse ,lowwer=lowwer_inverse , Asset_prices=Asset_prices)
+        Asset_prices    = st.number_input('Asset_prices',min_value=0.0,max_value= upper_inverse ,value=0.0,step=0.1,format='%f')
         st.sidebar.text('-'*40)
         
     if st.checkbox('Direct(ผันตรง)'):
