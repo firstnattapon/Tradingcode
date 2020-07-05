@@ -22,12 +22,14 @@ class Run_model :
         if Asset_prices != 0:
             plt.plot(x_capital, y_capital , color='r')
             plt.plot(x_asset , y_asset , color='r')
+        plt.set(xlabel='Asset_prices', ylabel='Port_value',title='inverse(ผกผัน)')
         st.pyplot()
         st.write('Formula')
         st.write('Port_value = ' , round(slope,4) ,'*(Asset_prices) +', round(b  , 4))
         st.write('Port_value = ' , round(slope,4) , '*(' ,Asset_prices, ') +' , round(b  , 4))
         st.write('Port_value = ' , Port_value)
-        
+        st.write('') ; st.write('_'*40) ; st.write('')
+
     def Direct (self,upper=100.0 ,lowwer=0.0):
         x1 = lowwer;  y1 = 0
         x2 = upper ;  y2 = self.capital
