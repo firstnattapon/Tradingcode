@@ -2,6 +2,7 @@ from scipy.stats import linregress
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
+import streamlit as st
 
 class Run_model :
     def __init__(self,capital,upper,lowwer):
@@ -23,8 +24,15 @@ class Run_model :
 
     @property
     def Direct (self):
-        pass
+        slope,b,_,_,_ = linregress([x1,x2],[y1,y2])
+        x = np.arange(x1 , x2 , (x2 /y2))
+        y = (slope * x) + b
+        plt.figure(figsize=(12,8))
+        plt.plot(x , y)
+        st.pyplot()
+        st.write( slope , b)
 #         return pass
 
 model =  Run_model(100 , 250 , 0)
 model.inverse
+model.Direct
