@@ -37,9 +37,11 @@ if __name__ == '__main__':
         upper_inverse   = st.sidebar.number_input('upper_inverse'   , 0 , 10000 , 100)
         lowwer_inverse  = st.sidebar.number_input('lowwer_inverse'  , 0 , 10000 , 0)
         _               = inverse.inverse(upper=upper_inverse ,lowwer=lowwer_inverse)
+        st.sidebar.text('-'*45)
     if st.checkbox('Direct'):
-        capital_Direct  = st.sidebar.number_input('Direct' , 0 , 10000 , 100)
+        capital_Direct  = st.sidebar.number_input('capital' , 0 , 10000 , 100)
         Direct          = Run_model(capital=capital_Direct)
         upper_Direct    = st.sidebar.number_input('upper_Direct'   , 0 , 10000 , 100)
         lowwer_Direct   = st.sidebar.number_input('lowwer_Direct'  , 0 , 10000 , 0)
-        _               = Direct.inverse(upper=upper_Direct ,lowwer=lowwer_Direct)
+        _               = Direct.Direct(upper=upper_Direct ,lowwer=lowwer_Direct)
+        st.sidebar.text('-'*45)
