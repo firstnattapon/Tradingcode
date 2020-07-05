@@ -22,10 +22,10 @@ class Run_model :
         if Asset_prices != 0:
             plt.plot(x_capital, y_capital , color='r')
             plt.plot(x_asset , y_asset , color='r')
+        if upper >= 5:
+            plt.legend(fontsize=12)
         plt.xlabel('Asset_prices',fontsize=14)
         plt.ylabel('Port_value',fontsize=14)
-        if lowwer >= 5:
-            plt.legend(fontsize=12)
         st.pyplot()
         st.write('Formula')
         st.write('Port_value = ' , round(slope,4) ,'*(Asset_prices) +', round(b  , 4))
@@ -47,10 +47,10 @@ class Run_model :
         if Asset_prices != 0:
             plt.plot(x_capital, y_capital , color='r')
             plt.plot(x_asset , y_asset , color='r')
+        if upper >= 5:
+            plt.legend(fontsize=12)
         plt.xlabel('Asset_prices',fontsize=14)
         plt.ylabel('Port_value',fontsize=14)
-        if lowwer >= 5:
-            plt.legend(fontsize=12)
         st.pyplot()
         st.write('Formula')
         st.write('Port_value = ' , round(slope,4) ,'*(Asset_prices) +', round(b  , 4))
