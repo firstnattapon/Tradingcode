@@ -8,7 +8,6 @@ class Run_model :
     def __init__(self,capital):
         self.capital = capital
         
-    @st.cache
     def inverse (self,upper=100 ,lowwer=0):
         x1 = lowwer ;  y1 = self.capital
         x2 = upper  ;  y2 = 0
@@ -20,7 +19,6 @@ class Run_model :
         st.pyplot()
         st.write( slope , b)
         
-   @st.cache
     def Direct (self,upper=100 ,lowwer=0):
         x1 = lowwer;  y1 = 0
         x2 = upper ;  y2 = self.capital
