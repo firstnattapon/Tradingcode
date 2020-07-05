@@ -17,7 +17,7 @@ class Run_model :
         plt.figure(figsize=(12,8))
         plt.plot(x , y)
         st.pyplot()
-        st.write('Portvalue =', round(slope,3) ,'*(Asset prices)+', b )
+        st.write('Portvalue =', round(slope,4) ,'*(Asset prices)+', round(b  , 4))
         
     def Direct (self,upper=100.0 ,lowwer=0.0):
         x1 = lowwer;  y1 = 0
@@ -28,7 +28,7 @@ class Run_model :
         plt.figure(figsize=(12,8))
         plt.plot(x , y)
         st.pyplot()
-        st.write('Portvalue =', round(slope,3) ,'*(Asset prices)+', b )
+        st.write('Portvalue =', round(slope,3) ,'*(Asset prices)+', round(b  , 4))
 
 if __name__ == '__main__':
     if st.checkbox('inverse'):
