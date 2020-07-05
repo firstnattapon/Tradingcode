@@ -78,6 +78,6 @@ if __name__ == '__main__':
         Asset_prices    = st.number_input('Asset_prices ', min_value=lowwer_Direct ,max_value= upper_Direct ,value=50.0,step=0.1,format='%f')
         _               = Direct.Direct(upper=upper_Direct ,lowwer=lowwer_Direct , Asset_prices=Asset_prices)
         st.sidebar.text('-'*40)
-    if inverse_checkbox and Direct_checkbox:
+    if inverse_checkbox = False and Direct_checkbox = False :
         st.header   ('Tradingcode cheatsheet')
         st.subheader('เลือก method')
