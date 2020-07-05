@@ -29,20 +29,31 @@ class Run_model :
         st.write('Formula')
         st.write('Port_value = ' , round(slope,4) ,'*(Asset_prices) +', round(b  , 4))
         st.write('Port_value = ' , round(slope,4) , '*(' ,Asset_prices, ') +' , round(b  , 4))
-        st.write('Port_value = ' , Port_value)
+        st.write('Port_value = ' , round(Port_value , 4))
         st.write('') ; st.write('_'*40) ; st.write('')
 
     def Direct (self,upper=100.0 ,lowwer=0.0):
         x1 = lowwer;  y1 = 0
         x2 = upper ;  y2 = self.capital
+        Asset_prices    = st.number_input('Asset_prices', min_value=0.0 ,max_value= upper_inverse ,value=0.0,step=0.1,format='%f')
         slope,b,_,_,_ = linregress([x1,x2],[y1,y2])
         x = np.arange(x1 , x2 , 0.01)
         y = (slope * x) + b
         plt.figure(figsize=(12,8))
-        plt.plot(x , y , )
+        Port_value = slope *(Asset_prices) + b
+        x_capital  = [0 , Asset_prices] ; y_capital = [Port_value , Port_value]
+        x_asset    = [Asset_prices  , Asset_prices] ; y_asset = [0 , Port_value]
+        plt.plot(x , y)
+        if Asset_prices != 0:
+            plt.plot(x_capital, y_capital , color='r')
+            plt.plot(x_asset , y_asset , color='r')
+        plt.xlabel('Asset_prices',fontsize=14)
+        plt.ylabel('Port_value',fontsize=14)
         st.pyplot()
-        st.write('Port_value = ', round(slope,3) , '*(Asset_prices) +', round(b  , 4))
-        st.write('Port_value = ', round(slope,3) , '* {} +'.format(Asset_prices), round(b  , 4))
+        st.write('Formula')
+        st.write('Port_value = ' , round(slope,4) ,'*(Asset_prices) +', round(b  , 4))
+        st.write('Port_value = ' , round(slope,4) , '*(' ,Asset_prices, ') +' , round(b  , 4))
+        st.write('Port_value = ' , round(Port_value , 4))
         st.write('') ; st.write('_'*40) ; st.write('')
     
 if __name__ == '__main__':
