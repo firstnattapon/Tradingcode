@@ -28,18 +28,18 @@ class Run_model :
         plt.figure(figsize=(12,8))
         plt.plot(x , y)
         st.pyplot()
-        st.write( slope , b)
+        st.write( 'จุดละ', slope)
 
 if __name__ == '__main__':
     if st.checkbox('inverse'):
-        capital_inverse = st.sidebar.number_input('capital' , 0 , 10000 , 100)
+        capital_inverse = st.sidebar.number_input('capital_inverse' , 0 , 10000 , 100)
         inverse         = Run_model(capital=capital_inverse)
         upper_inverse   = st.sidebar.number_input('upper_inverse'   , 0 , 10000 , 100)
         lowwer_inverse  = st.sidebar.number_input('lowwer_inverse'  , 0 , 10000 , 0)
         _               = inverse.inverse(upper=upper_inverse ,lowwer=lowwer_inverse)
         st.sidebar.text('-'*45)
     if st.checkbox('Direct'):
-        capital_Direct  = st.sidebar.number_input('capital' , 0 , 10000 , 100)
+        capital_Direct  = st.sidebar.number_input('capital_Direct' , 0 , 10000 , 100)
         Direct          = Run_model(capital=capital_Direct)
         upper_Direct    = st.sidebar.number_input('upper_Direct'   , 0 , 10000 , 100)
         lowwer_Direct   = st.sidebar.number_input('lowwer_Direct'  , 0 , 10000 , 0)
