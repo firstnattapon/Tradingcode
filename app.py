@@ -37,8 +37,8 @@ class Run_model :
         plt.figure(figsize=(12,8))
         plt.plot(x , y)
         st.pyplot()
-        st.write('Port_value = ', round(slope,3) ,'*(Asset_prices) +', round(b  , 4))
-        st.write('Port_value = ', round(slope,3) ,'*(', Asset_prices , )+', round(b  , 4))
+        st.write('Port_value = ', round(slope,3) , '*(Asset_prices) +', round(b  , 4))
+        st.write('Port_value = ', round(slope,3) , '*(' , Asset_prices , ')+', round(b  , 4))
         st.write('') ; st.write('_'*40) ; st.write('')
     
 if __name__ == '__main__':
