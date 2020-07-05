@@ -22,7 +22,11 @@ class Run_model :
         if Asset_prices != 0:
             plt.plot(x_capital, y_capital , color='r')
             plt.plot(x_asset , y_asset , color='r')
-        plt.set(xlabel='Asset_prices', ylabel='Port_value',title='inverse(ผกผัน)')
+            
+        plt.title('inverse(ผกผัน)',fontsize=24)
+        plt.xlabel('Asset_prices',fontsize=14)
+        plt.ylabel('Port_value',fontsize=14)
+        plt.tick_params(axis='both',labelsize=14)
         st.pyplot()
         st.write('Formula')
         st.write('Port_value = ' , round(slope,4) ,'*(Asset_prices) +', round(b  , 4))
