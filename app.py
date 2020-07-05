@@ -25,7 +25,7 @@ class Run_model :
         st.pyplot()
         st.write('Formula')
         st.write('Port_value = ' , round(slope,4) ,'*(Asset_prices) +', round(b  , 4))
-        st.write('Port_value = ' , round(slope,4) , Asset_prices  , round(b  , 4))
+        st.write('Port_value = ' , round(slope,4) , '*( ,Asset_prices , ') +' , round(b  , 4))
         st.write('Port_value = ' , Port_value)
         
     def Direct (self,upper=100.0 ,lowwer=0.0):
