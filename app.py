@@ -23,7 +23,10 @@ class Run_model :
             plt.plot(x_capital, y_capital)
             plt.plot(x_asset , y_asset)
         st.pyplot()
-        st.write('Port_value = ', round(slope,4) ,'*(Asset_prices) +', round(b  , 4))
+        st.write('*Formula*')
+        st.write('Port_value = ' , round(slope,4) ,'*(Asset_prices) +', round(b  , 4))
+        st.write('Port_value = ' , round(slope,4) , Asset_prices +', round(b  , 4))
+        st.write('Port_value = ' , Port_value)
         
     def Direct (self,upper=100.0 ,lowwer=0.0):
         x1 = lowwer;  y1 = 0
