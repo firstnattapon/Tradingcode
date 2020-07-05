@@ -24,7 +24,7 @@ class Run_model :
             plt.plot(x_asset , y_asset , color='r')
         plt.xlabel('Asset_prices',fontsize=14)
         plt.ylabel('Port_value',fontsize=14)
-        if lowwer => 5:
+        if lowwer >= 5:
             plt.legend(fontsize=12)
         st.pyplot()
         st.write('Formula')
@@ -49,7 +49,7 @@ class Run_model :
             plt.plot(x_asset , y_asset , color='r')
         plt.xlabel('Asset_prices',fontsize=14)
         plt.ylabel('Port_value',fontsize=14)
-        if lowwer => 5:
+        if lowwer >= 5:
             plt.legend(fontsize=12)
         st.pyplot()
         st.write('Formula')
