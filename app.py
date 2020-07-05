@@ -15,10 +15,10 @@ class Run_model :
         x = np.arange(x1 , x2 , 0.01)
         y = (slope * x) + b
         plt.figure(figsize=(12,8))
-        Port_value      = slope *(Asset_prices) + b
-        x_coordinates   = [0 , Asset_prices] ; y_coordinates = [Port_value , Port_value]
-        plt.plot(x_coordinates, y_coordinates)
-        plt.plot(x , y)
+        Port_value = slope *(Asset_prices) + b
+        x_capital  = [0 , Asset_prices] ; y_capital = [Port_value , Port_value]
+        x_asset    = [Asset_prices , Asset_prices] ; y_asset = [Asset_prices , Port_value]
+        plt.plot(x_capital, y_capital) ; plt.plot(x_asset , y_asset) ;plt.plot(x , y)
         st.pyplot()
         st.write('Port_value = ', round(slope,4) ,'*(Asset_prices) +', round(b  , 4))
         
