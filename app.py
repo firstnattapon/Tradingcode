@@ -32,7 +32,7 @@ class Run_model :
 
 if __name__ == '__main__':
     if st.checkbox('inverse'):
-        capital_inverse = st.sidebar.number_input('capital_inverse(ผกผัน)' , 0 , 10000 , 100)
+        capital_inverse = st.sidebar.number_input('capital_inverse(ผกผัน)' , 0 , 10000 , 100 , step=0.1)
         inverse         = Run_model(capital=capital_inverse)
         upper_inverse   = st.sidebar.number_input('upper_inverse(ผกผัน)'   , 0 , 10000 , 100)
         lowwer_inverse  = st.sidebar.number_input('lowwer_inverse(ผกผัน)'  , 0 , 10000 , 0)
