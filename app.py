@@ -39,10 +39,10 @@ if __name__ == '__main__':
         _               = inverse.inverse(upper=upper_inverse ,lowwer=lowwer_inverse)
         st.sidebar.text('-'*40)
     if st.checkbox('Direct'):
-        capital_Direct  = st.sidebar.number_input('capital_Direct(ผันตรง)' , 0 , 10000 , 100)
+        capital_Direct = st.sidebar.number_input('capital_Direct(ผันตรง) ',min_value=0.0,max_value=10000.0,value=1000.0,step=0.1,format='%f')
         Direct          = Run_model(capital=capital_Direct)
-        upper_Direct    = st.sidebar.number_input('upper_Direct(ผันตรง)'   , 0 , 10000 , 100)
-        lowwer_Direct   = st.sidebar.number_input('lowwer_Direct(ผันตรง)'  , 0 , 10000 , 0)
+        upper_Direct   = st.sidebar.number_input('upper_Direct(ผันตรง)   ',min_value=0.0,max_value=10000.0,value=100.0,step=0.1,format='%f')       
+        lowwer_Direct   = st.sidebar.number_input('lowwer_Direct(ผันตรง) ',min_value=0.0,max_value=10000.0,value=0.000,step=0.1,format='%f')        
         _               = Direct.Direct(upper=upper_Direct ,lowwer=lowwer_Direct)
         st.sidebar.text('-'*40)
         
