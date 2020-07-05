@@ -32,12 +32,15 @@ class Run_model :
 #         return pass
 
 if __name__ == '__main__':
-    capital = st.sidebar.number_input('capital' , 0 , 10000 , 100)
-    upper   = st.sidebar.number_input('upper'   , 0 , 10000 , 100)
-    lowwer  = st.sidebar.number_input('lowwer'  , 0 , 10000 , 0)
-    model   = Run_model(capital=capital)
-    
     if st.checkbox('inverse'):
-        _       = model.inverse(upper=upper ,lowwer=lowwer)
+        capital_inverse = st.sidebar.number_input('capital' , 0 , 10000 , 100)
+        inverse         = Run_model(capital=capital_inverse)
+        upper_inverse   = st.sidebar.number_input('upper'   , 0 , 10000 , 100)
+        lowwer_inverse  = st.sidebar.number_input('lowwer'  , 0 , 10000 , 0)
+        _               = inverse.inverse(upper=upper ,lowwer=lowwer)
     if st.checkbox('Direct'):
-        _       = model.Direct()
+        capital_Direct  = st.sidebar.number_input('capital' , 0 , 10000 , 100)
+        Direct          = Run_model(capital=capital_Direct)
+        upper_Direct    = st.sidebar.number_input('upper'   , 0 , 10000 , 100)
+        lowwer_Direct   = st.sidebar.number_input('lowwer'  , 0 , 10000 , 0)
+        _               = inverse.inverse(upper=upper_Direct ,lowwer=lowwer_Direct)
