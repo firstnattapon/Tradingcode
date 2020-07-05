@@ -17,7 +17,6 @@ class Run_model :
         plt.figure(figsize=(12,8))
         plt.plot(x , y)
         st.pyplot()
-        st.write('Formula:')
         st.write('Portvalue =', slope ,'*(Asset prices)+', b )
         
     def Direct (self,upper=100 ,lowwer=0):
@@ -29,7 +28,6 @@ class Run_model :
         plt.figure(figsize=(12,8))
         plt.plot(x , y)
         st.pyplot()
-        st.write('Formula:')
         st.write('Portvalue =', slope ,'*(Asset prices)+', b )
 
 if __name__ == '__main__':
