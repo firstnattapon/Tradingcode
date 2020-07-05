@@ -32,10 +32,10 @@ class Run_model :
 
 if __name__ == '__main__':
     if st.checkbox('inverse'):
-        capital_inverse = st.sidebar.number_input('capital_inverse(ผกผัน)',min_value=0.0,max_value=10000.0,value=100.0,step=0.01,format='%f')
+        capital_inverse = st.sidebar.number_input('capital_inverse(ผกผัน)',min_value=0.0,max_value=10000.0,value=1000.0,step=0.1,format='%f')
         inverse         = Run_model(capital=capital_inverse)
-        upper_inverse   = st.sidebar.number_input('upper_inverse(ผกผัน)'   , 0 , 10000 , 100)
-        lowwer_inverse  = st.sidebar.number_input('lowwer_inverse(ผกผัน)'  , 0 , 10000 , 0)
+        upper_inverse   = st.sidebar.number_input('upper_inverse(ผกผัน) ',min_value=0.0,max_value=10000.0,value=100.0,step=0.1,format='%f')        
+        lowwer_inverse  = st.sidebar.number_input('lowwer_inverse(ผกผัน)',min_value=0.0,max_value=10000.0,value=0.000,step=0.1,format='%f')        
         _               = inverse.inverse(upper=upper_inverse ,lowwer=lowwer_inverse)
         st.sidebar.text('-'*40)
     if st.checkbox('Direct'):
