@@ -5,15 +5,12 @@ import pandas as pd
 import streamlit as st
 
 class Run_model :
-    def __init__(self,capital,upper,lowwer):
+    def __init__(self,capital):
         self.capital = capital
-        self.upper = upper
-        self.lowwer = lowwer
 
-    @property
-    def inverse (self):
-        x1 = 0            ;  y1 = self.capital
-        x2 = self.capital ;  y2 = 0
+    def inverse (self,upper=100 ,lowwer=0):
+        x1 = lowwer ;  y1 = self.capital
+        x2 = upper  ;  y2 = 0
         slope,b,_,_,_ = linregress([x1,x2],[y1,y2])
         x = np.arange(x1 , x2 , (y1 / x2))
         y = (slope * x) + b
@@ -21,11 +18,10 @@ class Run_model :
         plt.plot(x , y)
         st.pyplot()
         st.write( slope , b)
-
-    @property
-    def Direct (self):
-        x1 = 0            ;  y1 = self.capital
-        x2 = self.capital ;  y2 = 0
+   
+    def Direct (self,upper=100 ,lowwer=0):
+        x1 = lowwer;  y1 = 0
+        x2 = upper ;  y2 = self.capital
         slope,b,_,_,_ = linregress([x1,x2],[y1,y2])
         x = np.arange(x1 , x2 , (x2 /y2))
         y = (slope * x) + b
@@ -35,6 +31,6 @@ class Run_model :
         st.write( slope , b)
 #         return pass
 
-model =  Run_model(100 , 250 , 0)
-_ = model.inverse
-_ = model.Direct
+model =  Run_model(capital = 250)
+_ = model.inverse()
+_ = model.Direct()
