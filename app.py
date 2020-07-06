@@ -102,7 +102,7 @@ if __name__ == '__main__':
         Auto_asset = st.checkbox('Auto_prices ')
         if Auto_asset :   
             pair_data      =  st.text_input( 'Symbol_ftx' , 'BTC-PERP')
-            Auto_Direct  =  inverse.dataset(pair_data)
+            Auto_Direct   =  Direct.dataset(pair_data)
             Asset_prices    = st.number_input('Asset_prices ', min_value= lowwer_Direct ,max_value= upper_Direct ,value=Auto_Direct,step=0.1,format='%f')
             Asset_prices   =  Direct.dataset(pair_data)
         else:
