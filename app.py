@@ -3,10 +3,27 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 import streamlit as st
+from datetime import  datetime
+import ccxt
 
 class Run_model :
     def __init__(self,capital):
         self.capital = capital
+        self.timeframe = "1m"  
+        self.limit = 3
+
+    def dataset (self  , pair_data = "BTC-USD"):
+        self.exchange = ccxt.ftx({'apiKey': '' ,'secret': ''  , 'enableRateLimit': True }) 
+        timeframe = self.timeframe
+        limit =  self.limit 
+        ohlcv = self.exchange.fetch_ohlcv(pair_data,timeframe , limit=limit )
+        ohlcv = self.exchange.convert_ohlcv_to_trading_view(ohlcv)
+        df =  pd.DataFrame(ohlcv)
+        df.t = df.t.apply(lambda  x :  datetime.fromtimestamp(x))
+        df =  df.set_index(df['t']) ; df = df.drop(['t'] , axis= 1 )
+        df = df.rename(columns={"o": "open", "h": "high"  , "l": "low", "c": "close" , "v": "volume"})
+        close = df['close'][-1]  
+        return close
         
     def inverse (self,upper=100.0 ,lowwer=0.0 , Asset_prices=0):
         x1 = lowwer ;  y1 = self.capital
@@ -60,23 +77,44 @@ class Run_model :
     
 if __name__ == '__main__':
     st.subheader('Tradingcode')  ; st.write('-'*50)
-    if  st.checkbox('inverse (ผกผัน)'):
+    if  st.checkbox('Inverse (ผกผัน)'):
         st.sidebar.text('-'*40)
-        capital_inverse = st.sidebar.number_input('capital_inverse(เงินทุนเริ่มต้น)',min_value=0.0,max_value=10000.0,value=1000.0,step=0.1,format='%f')   
-        inverse         = Run_model(capital=capital_inverse)
-        upper_inverse   = st.sidebar.number_input('upper_inverse(โซนบน)    !ต้องมากกว่า Asset_prices',min_value=0.0,max_value=10000.0,value=100.0,step=0.1,format='%f')        
-        lowwer_inverse  = st.sidebar.number_input('lowwer_inverse(โซนล่าง) !ต้องน้อยกว่า Asset_prices',min_value=0.0,max_value=10000.0,value=0.000,step=0.1,format='%f')
-        Asset_prices    = st.number_input('Asset_prices', min_value=lowwer_inverse ,max_value= upper_inverse ,value=upper_inverse,step=0.1,format='%f')
-        _               = inverse.inverse(upper=upper_inverse ,lowwer= lowwer_inverse , Asset_prices=Asset_prices)
+        capital_inverse  = st.sidebar.number_input('capital_inverse(เงินทุนเริ่มต้น)',min_value=0.0,max_value=10000.0,value=1000.0,step=0.1,format='%f')   
+        inverse             = Run_model(capital=capital_inverse)
+        upper_inverse    = st.sidebar.number_input('upper_inverse(โซนบน)    !ต้องมากกว่า Asset_prices',min_value=0.0,max_value=30000.0,value=20000.0,step=0.1,format='%f')        
+        lowwer_inverse  = st.sidebar.number_input('lowwer_inverse(โซนล่าง) !ต้องน้อยกว่า Asset_prices',min_value=0.0,max_value=30000.0,value=0.000,step=0.1,format='%f')
+        Auto_asset = st.checkbox('Auto_prices')
+        if Auto_asset :    
+            pair_data      =  st.text_input( 'symbol_ftx' , 'BTC-PERP')
+            Asset_prices  =  inverse.dataset(pair_data)
+            st.write( pair_data , '=' , Asset_prices)
+        else:
+            Asset_prices  = st.number_input('Asset_prices', min_value=lowwer_inverse ,max_value= upper_inverse ,value=upper_inverse,step=0.1,format='%f') 
+        _                      = inverse.inverse(upper=upper_inverse ,lowwer= lowwer_inverse , Asset_prices=Asset_prices)
         st.sidebar.text('-'*40)
         
     if  st.checkbox('Direct (ผันตรง)'):
         st.sidebar.text('-'*40)
-        capital_Direct  = st.sidebar.number_input('capital_Direct(เงินทุนเริ่มต้น) ',min_value=0.0,max_value=10000.0,value=1000.0,step=0.1,format='%f')
-        Direct          = Run_model(capital=capital_Direct)
-        upper_Direct    = st.sidebar.number_input('upper_Direct(โซนบน)   !ต้องมากกว่า Asset_price   ',min_value=0.0,max_value=10000.0,value=100.0,step=0.1,format='%f')       
-        lowwer_Direct   = st.sidebar.number_input('lowwer_Direct(โซนล่าง)!ต้องน้อยกว่า Asset_prices ',min_value=0.0,max_value=10000.0,value=0.000,step=0.1,format='%f')
-        Asset_prices    = st.number_input('Asset_prices ', min_value= lowwer_Direct ,max_value= upper_Direct ,value=upper_Direct,step=0.1,format='%f')
-        _               = Direct.Direct(upper=upper_Direct ,lowwer=lowwer_Direct , Asset_prices=Asset_prices)
+        capital_Direct   = st.sidebar.number_input('capital_Direct(เงินทุนเริ่มต้น) ',min_value=0.0,max_value=10000.0,value=1000.0,step=0.1,format='%f')
+        Direct              = Run_model(capital=capital_Direct)
+        upper_Direct    = st.sidebar.number_input('upper_Direct(โซนบน)   !ต้องมากกว่า Asset_price   ',min_value=0.0,max_value=30000.0,value=20000.0,step=0.1,format='%f')       
+        lowwer_Direct  = st.sidebar.number_input('lowwer_Direct(โซนล่าง)!ต้องน้อยกว่า Asset_prices ',min_value=0.0,max_value=30000.0,value=0.000,step=0.1,format='%f')
+        Auto_asset = st.checkbox('Auto_prices ')
+        if Auto_asset :   
+            pair_data      =  st.text_input( 'Symbol_ftx' , 'BTC-PERP')
+            Asset_prices  =  Direct.dataset(pair_data)
+            st.write( pair_data , ':' , Asset_prices)
+        else:
+            Asset_prices    = st.number_input('Asset_prices ', min_value= lowwer_Direct ,max_value= upper_Direct ,value=upper_Direct,step=0.1,format='%f')
+        _                    = Direct.Direct(upper=upper_Direct ,lowwer=lowwer_Direct , Asset_prices=Asset_prices)
         st.sidebar.text('-'*40)
-        
+
+    code = """
+v 1.20 (7/7/2020)
+- Added  Auto_prices
+
+Donate
+XRP Addres: rpXTzCuXtjiPDFysxq8uNmtZBe9Xo97JbW
+XRP Tag   : 1024466261"""
+    st.sidebar.code(code, language='python')
+    
