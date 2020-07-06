@@ -86,8 +86,8 @@ if __name__ == '__main__':
         Auto_asset = st.checkbox('Auto_prices')
         if Auto_asset :    
             pair_data      =  st.text_input( 'symbol_ftx' , 'BTC-PERP')
-            Asset_prices  =  inverse.dataset(pair_data)
-            st.write( pair_data , '=' , Asset_prices)
+            Auto_inverse   =  inverse.dataset(pair_data)
+            Asset_prices  = st.number_input('Asset_prices', min_value=lowwer_inverse ,max_value= upper_inverse , value=Auto ,step=0.1,format='%f') 
         else:
             Asset_prices  = st.number_input('Asset_prices', min_value=lowwer_inverse ,max_value= upper_inverse ,value=upper_inverse,step=0.1,format='%f') 
         _                      = inverse.inverse(upper=upper_inverse ,lowwer= lowwer_inverse , Asset_prices=Asset_prices)
@@ -102,8 +102,9 @@ if __name__ == '__main__':
         Auto_asset = st.checkbox('Auto_prices ')
         if Auto_asset :   
             pair_data      =  st.text_input( 'Symbol_ftx' , 'BTC-PERP')
-            Asset_prices  =  Direct.dataset(pair_data)
-            st.write( pair_data , ':' , Asset_prices)
+            Auto_Direct  =  inverse.dataset(pair_data)
+            Asset_prices    = st.number_input('Asset_prices ', min_value= lowwer_Direct ,max_value= upper_Direct ,value=Auto,step=0.1,format='%f')
+            Asset_prices   =  Direct.dataset(pair_data)
         else:
             Asset_prices    = st.number_input('Asset_prices ', min_value= lowwer_Direct ,max_value= upper_Direct ,value=upper_Direct,step=0.1,format='%f')
         _                    = Direct.Direct(upper=upper_Direct ,lowwer=lowwer_Direct , Asset_prices=Asset_prices)
