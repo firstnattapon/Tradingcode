@@ -29,7 +29,7 @@ class Run_model :
         x1 = lowwer ;  y1 = self.capital
         x2 = upper  ;  y2 = 0
         slope,b,_,_,_ = linregress([x1,x2],[y1,y2])
-        x = np.arange(x1 , x2 , 0.05)
+        x = np.arange(x1 , x2 , 0.10)
         y = (slope * x) + b
         plt.figure(figsize=(12,8))
         Port_value = slope *(Asset_prices) + b
@@ -54,7 +54,7 @@ class Run_model :
         x1 = lowwer;  y1 = 0
         x2 = upper ;  y2 = self.capital
         slope,b,_,_,_ = linregress([x1,x2],[y1,y2])
-        x = np.arange(x1 , x2 , 0.05)
+        x = np.arange(x1 , x2 , 0.10)
         y = (slope * x) + b
         plt.figure(figsize=(12,8))
         Port_value = slope *(Asset_prices) + b
@@ -118,4 +118,3 @@ Donate
 XRP Addres: rpXTzCuXtjiPDFysxq8uNmtZBe9Xo97JbW
 XRP Tag   : 1024466261"""
     st.sidebar.code(code, language='python')
-    
