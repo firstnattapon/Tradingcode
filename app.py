@@ -25,7 +25,8 @@ class Run_model :
         df = df.rename(columns={"o": "open", "h": "high"  , "l": "low", "c": "close" , "v": "volume"})
         close = df['close'][-1]  
         return close
-        
+    
+    @st.cache(suppress_st_warning=True)
     def inverse (self,upper=100.0 ,lowwer=0.0 , Asset_prices=0):
         x1 = lowwer ;  y1 = self.capital
         x2 = upper  ;  y2 = 0
@@ -50,7 +51,8 @@ class Run_model :
         st.write('Port_value = ' , round(slope,4) , '*(' ,Asset_prices, ') +' , round(b  , 4))
         st.write('Port_value = ' , round(Port_value , 4))
         st.write('') ; st.write('_'*40) ; st.write('')
-
+     
+    @st.cache(suppress_st_warning=True)
     def Direct (self,upper=100.0 ,lowwer=0.0, Asset_prices=0):
         x1 = lowwer;  y1 = 0
         x2 = upper ;  y2 = self.capital
