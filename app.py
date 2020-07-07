@@ -11,7 +11,8 @@ class Run_model :
         self.capital = capital
         self.timeframe = "1m"  
         self.limit = 3
-
+        
+    @st.cache(suppress_st_warning=True)
     def dataset (self  , pair_data = "BTC-USD"):
         self.exchange = ccxt.ftx({'apiKey': '' ,'secret': ''  , 'enableRateLimit': True }) 
         timeframe = self.timeframe
