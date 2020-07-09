@@ -51,8 +51,7 @@ class Run_model :
         st.write('Port_value = ' , round(slope,4) ,'*(Asset_prices) +', round(b  , 4))
         st.write('Port_value = ' , round(slope,4) , '*(' ,Asset_prices, ') +' , round(b  , 4))
         st.write('Port_value = ' , round(Port_value , 4))
-        st.write('Fix_value = ' , round(abs(slope) * Asset_prices , 4) ,
-                 '(Rebalance_Ratio 1:{})'.format((abs(slope) * Asset_prices , 4) / self.capital))
+        st.write('Fix_value = ' , round(abs(slope) * Asset_prices , 4) ,'(Rebalance_Ratio 1:{})'.format(round((abs(slope) * Asset_prices) / self.capital , 4))
         st.write('') ; st.write('_'*40) ; st.write('')
      
     def Direct (self,upper=100.0 ,lowwer=0.0, Asset_prices=0):
@@ -81,8 +80,7 @@ class Run_model :
         st.write('Port_value = ' , round(slope,4) ,'*(Asset_prices) +', round(b  , 4))
         st.write('Port_value = ' , round(slope,4) , '*(' ,Asset_prices, ') +' , round(b  , 4))
         st.write('Port_value = ' , round(Port_value , 4))
-        st.write('Fix_value = ' , round(abs(slope) * Asset_prices , 4) ,
-                 '(Rebalance_Ratio 1:{})'.format((abs(slope) * Asset_prices , 4) / self.capital))
+        st.write('Fix_value = ' , round(abs(slope) * Asset_prices , 4) ,'(Rebalance_Ratio 1:{})'.format(round((abs(slope) * Asset_prices) / self.capital , 4))
         st.write('') ; st.write('_'*40) ; st.write('')
 if __name__ == '__main__':
     st.subheader('Tradingcode')  ; st.write('-'*50)
