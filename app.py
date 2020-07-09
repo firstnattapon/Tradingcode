@@ -41,6 +41,9 @@ class Run_model :
             plt.plot(x_asset , y_asset , color='r')
         if upper >= 5:
             plt.legend(fontsize=12)
+        if upper < 5:
+            plt.plot(x , y , label='D 0.01 = {:.2f}'.format(abs(slope/100)))
+            plt.legend(fontsize=12)
         plt.xlabel('Asset_prices',fontsize=14)
         plt.ylabel('Port_value',fontsize=14)
         st.pyplot()
@@ -66,6 +69,9 @@ class Run_model :
             plt.plot(x_capital, y_capital , color='r')
             plt.plot(x_asset , y_asset , color='r')
         if upper >= 5:
+            plt.legend(fontsize=12)
+        if upper < 5:
+            plt.plot(x , y , label='D 0.01 = {:.2f}'.format(abs(slope/100)))
             plt.legend(fontsize=12)
         plt.xlabel('Asset_prices',fontsize=14)
         plt.ylabel('Port_value',fontsize=14)
