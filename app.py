@@ -50,7 +50,7 @@ class Run_model :
         st.write('Formula')
         st.write('Port_value = ' ,'(Rebalance_Ratio 1 ต่อ {:.2f})'.format((abs(slope) * Asset_prices /self.capital)))
         st.write('Mean_value = ' , '(Asset:{} & Capital:{})'.format(round((upper+lowwer)/2 , 4) ,round(self.capital/2 , 4)),
-                 '({:.2f})'format.(round((upper+lowwer)/2 , 4) * abs(slope)))
+                 '({:.2f})'.format(round((upper+lowwer)/2 , 4) * abs(slope)))
         st.write('Port_value = ' , round(slope,4) ,'*(Asset_prices) +', round(b  , 4))
         st.write('Port_value = ' , round(slope,4) , '*(',Asset_prices,') +' , round(b  , 4))
         st.write('Port_value = ' , round(Port_value , 4))
@@ -81,7 +81,7 @@ class Run_model :
         st.write('Formula')
         st.write('Port_value = ' ,'(Rebalance_Ratio 1 ต่อ {:.2f})'.format((abs(slope) * Asset_prices /self.capital)))
         st.write('Mean_value = ' , '(Asset:{} & Capital:{})'.format(round((upper+lowwer)/2 , 4) ,round(self.capital/2 , 4)),
-                 '({:.2f})'format.(round((upper+lowwer)/2 , 4) * abs(slope)))        
+                 '({:.2f})'.format(round((upper+lowwer)/2 , 4) * abs(slope)))        
         st.write('Port_value = ' , round(slope,4) ,'*(Asset_prices) +', round(b  , 4))
         st.write('Port_value = ' , round(slope,4) , '*(',Asset_prices,') +' , round(b  , 4))
         st.write('Port_value = ' , round(Port_value , 4))
