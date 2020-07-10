@@ -98,7 +98,7 @@ if __name__ == '__main__':
             Auto_inverse   =  inverse.dataset(pair_data)
             Asset_prices  = st.number_input('Asset_prices', min_value=lowwer_inverse ,max_value= upper_inverse , value=Auto_inverse ,step=0.1,format='%f') 
         else:
-            Asset_prices  = st.number_input('Asset_prices', min_value=lowwer_inverse ,max_value= upper_inverse ,value=upper_inverse,step=0.1,format='%f') 
+            Asset_prices  = st.number_input('Asset_prices', min_value=lowwer_inverse ,max_value= upper_inverse ,value=round((upper-lowwer)/2 , 4),step=0.1,format='%f') 
         _                      = inverse.inverse(upper=upper_inverse ,lowwer= lowwer_inverse , Asset_prices=Asset_prices)
         st.sidebar.text('-'*40)
         
@@ -115,7 +115,7 @@ if __name__ == '__main__':
             Asset_prices    = st.number_input('Asset_prices ', min_value= lowwer_Direct ,max_value= upper_Direct ,value=Auto_Direct,step=0.1,format='%f')
             Asset_prices   =  Direct.dataset(pair_data)
         else:
-            Asset_prices    = st.number_input('Asset_prices ', min_value= lowwer_Direct ,max_value= upper_Direct ,value=upper_Direct,step=0.1,format='%f')
+            Asset_prices    = st.number_input('Asset_prices ', min_value= lowwer_Direct ,max_value= upper_Direct ,value=round((upper-lowwer)/2 , 4),step=0.1,format='%f')
         _                    = Direct.Direct(upper=upper_Direct ,lowwer=lowwer_Direct , Asset_prices=Asset_prices)
         st.sidebar.text('-'*40)
 
