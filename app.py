@@ -81,7 +81,7 @@ class Run_model :
         st.write('Port_value = ' , round(slope,4) ,'*(Asset_prices) +', round(b  , 4))
         st.write('Port_value = ' , round(slope,4) , '*(',Asset_prices,') +' , round(b  , 4))
         st.write('Port_value = ' , round(Port_value , 4))
-         st.write('Mean_value = ' , '(A:{} & C:{})'.format(round((upper-lowwer)/2 , 4) ,round(self.capital/2 , 4)),
+        st.write('Mean_value = ' , '(A:{} & C:{})'.format(round((upper-lowwer)/2 , 4) ,round(self.capital/2 , 4)),
                  '(Rebalance_Ratio 1:{})'.format(round((abs(slope) * Asset_prices) /self.capital)))
         st.write('') ; st.write('_'*40) ; st.write('')
 if __name__ == '__main__':
