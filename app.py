@@ -48,11 +48,11 @@ class Run_model :
         plt.ylabel('Port_value',fontsize=14)
         st.pyplot()
         st.write('Formula')
-        st.write('Mean_value = ' , '(A:{} & C:{})'.format(round((upper+lowwer)/2 , 4) ,round(self.capital/2 , 4)),
-                 '(Rebalance_Ratio 1:{})'.format(round((abs(slope) * Asset_prices) /self.capital)))
+        st.write('Mean_value = ' , '(A:{} & C:{})'.format(round((upper+lowwer)/2 , 4) ,round(self.capital/2 , 4)))
         st.write('Port_value = ' , round(slope,4) ,'*(Asset_prices) +', round(b  , 4))
         st.write('Port_value = ' , round(slope,4) , '*(',Asset_prices,') +' , round(b  , 4))
         st.write('Port_value = ' , round(Port_value , 4))
+        st.write('Port_value = ' ,'(Rebalance_Ratio 1:{})'.format(round((abs(slope) * Asset_prices, 4) /self.capital)))
         st.write('') ; st.write('_'*40) ; st.write('')
      
     def Direct (self,upper=100.0 ,lowwer=0.0, Asset_prices=0):
@@ -78,11 +78,11 @@ class Run_model :
         plt.ylabel('Port_value',fontsize=14)
         st.pyplot()
         st.write('Formula')
-        st.write('Mean_value = ' , '(A:{} & C:{})'.format(round((upper+lowwer)/2 , 4) ,round(self.capital/2 , 4)),
-                 '(Rebalance_Ratio 1:{})'.format(round((abs(slope) * Asset_prices) /self.capital)))
+        st.write('Mean_value = ' , '(A:{} & C:{})'.format(round((upper+lowwer)/2 , 4) ,round(self.capital/2 , 4)))
         st.write('Port_value = ' , round(slope,4) ,'*(Asset_prices) +', round(b  , 4))
         st.write('Port_value = ' , round(slope,4) , '*(',Asset_prices,') +' , round(b  , 4))
         st.write('Port_value = ' , round(Port_value , 4))
+        st.write('Port_value = ' ,'(Rebalance_Ratio 1:{})'.format(round((abs(slope) * Asset_prices, 4) /self.capital)))
         st.write('') ; st.write('_'*40) ; st.write('')
 if __name__ == '__main__':
     st.subheader('Tradingcode')  ; st.write('-'*50)
