@@ -48,7 +48,7 @@ class Run_model :
         plt.ylabel('Port_value',fontsize=14)
         st.pyplot()
         st.write('Formula')
-        st.write('Mean_value = ' , '(A:{} & C:{})'.format(round((upper-lowwer)/2 , 4) ,round(self.capital/2 , 4)),
+        st.write('Mean_value = ' , '(A:{} & C:{})'.format(round((upper+lowwer)/2 , 4) ,round(self.capital/2 , 4)),
                  '(Rebalance_Ratio 1:{})'.format(round((abs(slope) * Asset_prices) /self.capital)))
         st.write('Port_value = ' , round(slope,4) ,'*(Asset_prices) +', round(b  , 4))
         st.write('Port_value = ' , round(slope,4) , '*(',Asset_prices,') +' , round(b  , 4))
@@ -78,7 +78,7 @@ class Run_model :
         plt.ylabel('Port_value',fontsize=14)
         st.pyplot()
         st.write('Formula')
-        st.write('Mean_value = ' , '(A:{} & C:{})'.format(round((upper-lowwer)/2 , 4) ,round(self.capital/2 , 4)),
+        st.write('Mean_value = ' , '(A:{} & C:{})'.format(round((upper+lowwer)/2 , 4) ,round(self.capital/2 , 4)),
                  '(Rebalance_Ratio 1:{})'.format(round((abs(slope) * Asset_prices) /self.capital)))
         st.write('Port_value = ' , round(slope,4) ,'*(Asset_prices) +', round(b  , 4))
         st.write('Port_value = ' , round(slope,4) , '*(',Asset_prices,') +' , round(b  , 4))
@@ -99,7 +99,7 @@ if __name__ == '__main__':
             Asset_prices  = st.number_input('Asset_prices', min_value=lowwer_inverse ,max_value= upper_inverse , value=Auto_inverse ,step=0.1,format='%f') 
         else:
             Asset_prices  = st.number_input('Asset_prices', min_value=lowwer_inverse ,max_value= upper_inverse ,
-                                            value=round((upper_inverse-lowwer_inverse)/2 , 4),step=0.1,format='%f') 
+                                            value=round((upper_inverse+lowwer_inverse)/2 , 4),step=0.1,format='%f') 
         _                      = inverse.inverse(upper=upper_inverse ,lowwer= lowwer_inverse , Asset_prices=Asset_prices)
         st.sidebar.text('-'*40)
         
@@ -117,7 +117,7 @@ if __name__ == '__main__':
             Asset_prices   =  Direct.dataset(pair_data)
         else:
             Asset_prices    = st.number_input('Asset_prices ', min_value= lowwer_Direct ,max_value= upper_Direct ,
-                                              value=round((upper_Direct-lowwer_Direct)/2 , 4),step=0.1,format='%f')
+                                              value=round((upper_Direct+lowwer_Direct)/2 , 4),step=0.1,format='%f')
         _                    = Direct.Direct(upper=upper_Direct ,lowwer=lowwer_Direct , Asset_prices=Asset_prices)
         st.sidebar.text('-'*40)
 
