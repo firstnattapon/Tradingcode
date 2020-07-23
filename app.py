@@ -105,15 +105,15 @@ if __name__ == '__main__':
         _                      = inverse.inverse(upper=upper_inverse ,lowwer= lowwer_inverse , Asset_prices=Asset_prices)
         st.sidebar.text('-'*40)
         
-    if  st.checkbox('Direct (ผันตรง)'):
+    if  st.checkbox('Direct (ผันตรง)', value=False):
         st.sidebar.text('-'*40)
-        capital_Direct   = st.sidebar.number_input('capital_Direct(เงินทุนเริ่มต้น) ',min_value=0.0,max_value=20000.0,value=1000.0,step=0.1,format='%f')
+        capital_Direct   = st.sidebar.number_input('capital_Direct(เงินทุนเริ่มต้น) ',min_value=0.0,max_value=20000.0,value=46.0,step=0.1,format='%f')
         Direct              = Run_model(capital=capital_Direct)
-        upper_Direct    = st.sidebar.number_input('upper_Direct(โซนบน)   !ต้องมากกว่า Asset_price   ',min_value=0.0,max_value=30000.0,value=20000.0,step=0.1,format='%f')       
-        lowwer_Direct  = st.sidebar.number_input('lowwer_Direct(โซนล่าง)!ต้องน้อยกว่า Asset_prices ',min_value=0.0,max_value=30000.0,value=0.000,step=0.1,format='%f')
-        Auto_asset = st.checkbox('Auto_prices ')
+        upper_Direct    = st.sidebar.number_input('upper_Direct(โซนบน)   !ต้องมากกว่า Asset_price   ',min_value=0.0,max_value=30000.0,value=1.20 .0,step=0.1,format='%f')       
+        lowwer_Direct  = st.sidebar.number_input('lowwer_Direct(โซนล่าง)!ต้องน้อยกว่า Asset_prices ',min_value=0.0,max_value=30000.0,value=0.635,step=0.1,format='%f')
+        Auto_asset = st.checkbox('Auto_prices ',value=False )
         if Auto_asset :   
-            pair_data      =  st.text_input( 'Symbol_ftx' , 'BTC-PERP')
+            pair_data      =  st.text_input( 'Symbol_ftx' , 'TOMO-PERP')
             Auto_Direct   =  Direct.dataset(pair_data)
             Asset_prices    = st.number_input('Asset_prices ', min_value= lowwer_Direct ,max_value= upper_Direct ,value=Auto_Direct,step=0.1,format='%f')
             Asset_prices   =  Direct.dataset(pair_data)
