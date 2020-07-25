@@ -29,7 +29,7 @@ class Run_model :
         x1 = lowwer ;  y1 = self.capital
         x2 = upper  ;  y2 = 0
         slope,b,_,_,_ = linregress([x1,x2],[y1,y2])
-        x = np.arange(x1 , x2 , 0.05)
+        x = np.arange(x1 , x2 , 0.0010)
         y = (slope * x) + b
         plt.figure(figsize=(12,8))
         Port_value = slope *(Asset_prices) + b
@@ -42,7 +42,7 @@ class Run_model :
             plt.plot(x , y , label='D = {:.2f}'.format(abs(slope)))
             plt.legend(fontsize=12)
         if upper < 5:
-            plt.plot(x , y , label='D 0.01 = {:.2f}'.format(abs(slope/100)))
+            plt.plot(x , y , label='D 0.001 = {:.2f}'.format(abs(slope/1000)))
             plt.legend(fontsize=12)
         plt.xlabel('Asset_prices',fontsize=14)
         plt.ylabel('Port_value',fontsize=14)
