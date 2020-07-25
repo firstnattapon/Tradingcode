@@ -14,16 +14,16 @@ class Run_model :
         
     def dataset (self  , pair_data = "BTC-USD"):
         self.exchange = ccxt.ftx({'apiKey': '' ,'secret': ''  , 'enableRateLimit': True }) 
-        timeframe = self.timeframe
-        limit =  self.limit 
-        ohlcv = self.exchange.fetch_ohlcv(pair_data,timeframe , limit=limit )
-        ohlcv = self.exchange.convert_ohlcv_to_trading_view(ohlcv)
-        df =  pd.DataFrame(ohlcv)
-        df.t = df.t.apply(lambda  x :  datetime.fromtimestamp(x))
-        df =  df.set_index(df['t']) ; df = df.drop(['t'] , axis= 1 )
-        df = df.rename(columns={"o": "open", "h": "high"  , "l": "low", "c": "close" , "v": "volume"})
-        close = df['close'][-1]  
-        return close
+#         timeframe = self.timeframe
+#         limit =  self.limit 
+#         ohlcv = self.exchange.fetch_ohlcv(pair_data,timeframe , limit=limit )
+#         ohlcv = self.exchange.convert_ohlcv_to_trading_view(ohlcv)
+#         df =  pd.DataFrame(ohlcv)
+#         df.t = df.t.apply(lambda  x :  datetime.fromtimestamp(x))
+#         df =  df.set_index(df['t']) ; df = df.drop(['t'] , axis= 1 )
+#         df = df.rename(columns={"o": "open", "h": "high"  , "l": "low", "c": "close" , "v": "volume"})
+#         close = df['close'][-1]  
+        return self.exchange.fetch_ticker('TOMOBEAR/USD')['info']['bid']
     
     def inverse (self,upper=100.0 ,lowwer=0.0 , Asset_prices=0):
         x1 = lowwer ;  y1 = self.capital
@@ -54,7 +54,7 @@ class Run_model :
         st.write('Port_value = ' , round(slope,4) , '*(',Asset_prices,') +' , round(b  , 4))
         st.write('Port_value = ' , round(Port_value , 4), '({})'.format(round(self.capital/2 , 4)))
         st.write('Cash_total = ' , round(Asset_prices * abs(slope) , 4)  )
-        st.write('Sum_total = ' , round((Asset_prices * abs(slope)) + round(self.capital/2,4),4) - 2.5169 )
+        st.write('Sum_total = ' , round((Asset_prices * abs(slope)) + round(self.capital/2,4),4))
         st.write('') ; st.write('_'*40) ; st.write('')
      
     def Direct (self,upper=100.0 ,lowwer=0.0, Asset_prices=0):
@@ -86,7 +86,7 @@ class Run_model :
         st.write('Port_value = ' , round(slope,4) , '*(',Asset_prices,') +' , round(b  , 4))
         st.write('Port_value = ' , round(Port_value , 4), '({})'.format(round(self.capital/2 , 4)))
         st.write('Cash_total = ' , round(Asset_prices * abs(slope) , 4) )
-        st.write('Sum_total = ' , round((Asset_prices * abs(slope)) + round(self.capital/2,4),4) -2.5169)
+        st.write('Sum_total = ' , round((Asset_prices * abs(slope)) + round(self.capital/2,4),4))
         st.write('') ; st.write('_'*40) ; st.write('')
 if __name__ == '__main__':
     st.subheader('Tradingcode')  ; st.write('-'*50)
