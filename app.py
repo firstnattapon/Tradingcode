@@ -54,7 +54,7 @@ class Run_model :
         st.write('Port_value = ' , round(slope,4) , '*(',Asset_prices,') +' , round(b  , 4))
         st.write('Port_value = ' , round(Port_value , 4), '({})'.format(round(self.capital/2 , 4)))
         st.write('Cash_total = ' , round(Asset_prices * abs(slope) , 4)  )
-        st.write('Sum_total = ' , round((Asset_prices * abs(slope)) + round(self.capital/2,4),4))
+        st.write('Sum_total = ' , round((Asset_prices * abs(slope)) + round(self.capital/2,4),4) - 2.5169 )
         st.write('') ; st.write('_'*40) ; st.write('')
      
     def Direct (self,upper=100.0 ,lowwer=0.0, Asset_prices=0):
@@ -86,7 +86,7 @@ class Run_model :
         st.write('Port_value = ' , round(slope,4) , '*(',Asset_prices,') +' , round(b  , 4))
         st.write('Port_value = ' , round(Port_value , 4), '({})'.format(round(self.capital/2 , 4)))
         st.write('Cash_total = ' , round(Asset_prices * abs(slope) , 4) )
-        st.write('Sum_total = ' , round((Asset_prices * abs(slope)) + round(self.capital/2,4),4))
+        st.write('Sum_total = ' , round((Asset_prices * abs(slope)) + round(self.capital/2,4),4) -2.5169)
         st.write('') ; st.write('_'*40) ; st.write('')
 if __name__ == '__main__':
     st.subheader('Tradingcode')  ; st.write('-'*50)
