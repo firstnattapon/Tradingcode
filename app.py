@@ -73,7 +73,7 @@ class Run_model :
             plt.plot(x , y , label='D = {:.2f}'.format(abs(slope)))
             plt.legend(fontsize=12)
         if upper < 5:
-            plt.plot(x , y , label='D(0.01) = {:.2f}'.format(abs(slope/100)))
+            plt.plot(x , y , label='D(0.001) = {:.2f}'.format(abs(slope/1000)))
             plt.legend(fontsize=12)
         plt.xlabel('Asset_prices',fontsize=14)
         plt.ylabel('Port_value',fontsize=14)
@@ -92,8 +92,8 @@ if __name__ == '__main__':
         st.sidebar.text('-'*40)
         capital_inverse  = st.sidebar.number_input('capital_inverse(เงินทุนเริ่มต้น)',min_value=0.0,max_value=20000.0,value=46.0 ,step=0.1,format='%f')   
         inverse          = Run_model(capital=capital_inverse)
-        upper_inverse    = st.sidebar.number_input('upper_inverse(โซนบน)    !ต้องมากกว่า Asset_prices',min_value=0.0,max_value=30000.0,value=0.00787.0,step=0.1,format='%f')        
-        lowwer_inverse   = st.sidebar.number_input('lowwer_inverse(โซนล่าง) !ต้องน้อยกว่า Asset_prices',min_value=0.0,max_value=30000.0,value=0.00000,step=0.1,format='%f')
+        upper_inverse    = st.sidebar.number_input('upper_inverse(โซนบน)    !ต้องมากกว่า Asset_prices',min_value=0.0,max_value=30000.0,value=0.00787,step=0.1,format='%f')        
+        lowwer_inverse   = st.sidebar.number_input('lowwer_inverse(โซนล่าง) !ต้องน้อยกว่า Asset_prices',min_value=0.0,max_value=30000.0,value=0.00000 ,step=0.1,format='%f')
         Auto_asset = st.checkbox('Auto_prices',value=1)
         if Auto_asset :    
             pair_data      =  st.text_input( 'symbol_ftx' , 'TOMOBEAR/USD')
