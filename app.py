@@ -23,7 +23,7 @@ class Run_model :
 #         df =  df.set_index(df['t']) ; df = df.drop(['t'] , axis= 1 )
 #         df = df.rename(columns={"o": "open", "h": "high"  , "l": "low", "c": "close" , "v": "volume"})
 #         close = df['close'][-1]  
-        return self.exchange.fetch_ticker('TOMOBEAR/USD')['info']['bid']
+        return self.exchange.fetch_ticker(pair_data)['info']['bid']
     
     def inverse (self,upper=100.0 ,lowwer=0.0 , Asset_prices=0):
         x1 = lowwer ;  y1 = self.capital
