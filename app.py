@@ -53,7 +53,7 @@ class Run_model :
                  '(Fix_Hold {:.2f}$)'.format( Asset_prices * abs(slope)))   
         st.write('Port_value = ' , round(slope,4) , '*(',Asset_prices,') +' , round(b  , 4))
         st.write('Port_value = ' , round(Port_value , 4), '({})'.format(round(self.capital/2 , 4)))
-        st.write('Cash_total = ' , round(Asset_prices * abs(slope) , 4) , '({})'.format( self.capital - round(Port_value , 4) )
+        st.write('Cash_total = ' , round(Asset_prices * abs(slope) , 4) , '({})'.format( self.capital - round(Port_value , 4)))
         st.write('Sum_total = ', round(Asset_prices * abs(slope),4) + round(self.capital / 2, 4),
                                        '({})'.format(round(self.capital / 2, 4) + (self.capital - round(Port_value, 4)))
         st.write('') ; st.write('_'*40) ; st.write('')
@@ -86,7 +86,7 @@ class Run_model :
                  '(Fix_Hold {:.2f}$)'.format( Asset_prices * abs(slope)))  
         st.write('Port_value = ' , round(slope,4) , '*(',Asset_prices,') +' , round(b  , 4))
         st.write('Port_value = ' , round(Port_value , 4), '({})'.format(round(self.capital/2 , 4)))
-        st.write('Cash_total = ' , round(Asset_prices * abs(slope) , 4) , '({})'.format( self.capital - round(Port_value , 4) )
+        st.write('Cash_total = ' , round(Asset_prices * abs(slope) , 4) , '({})'.format( self.capital - round(Port_value , 4)))
         st.write('Sum_total = ', round(Asset_prices * abs(slope),4) + round(self.capital / 2, 4),
                                        '({})'.format(round(self.capital / 2, 4) + (self.capital - round(Port_value, 4)))
         st.write('') ; st.write('_'*40) ; st.write('')
